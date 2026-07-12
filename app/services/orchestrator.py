@@ -45,11 +45,15 @@ class Orchestrator:
                 file.description
             )
 
-            FileTools.create_file(
-                path=
+            file_path = (
                 f"generated_projects/"
                 f"{project_name}/"
-                f"{file.file_name}",
+                f"{file.path}/"
+                f"{file.file_name}"
+            )
+
+            FileTools.create_file(
+                path=file_path,
                 content=code
             )
 
