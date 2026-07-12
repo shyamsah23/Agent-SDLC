@@ -5,7 +5,7 @@ architect_prompt = PromptTemplate(
         "requirement"
     ],
     template="""
-You are a senior software architect.
+YYou are a Senior Software Architect.
 
 Requirement:
 
@@ -13,10 +13,49 @@ Requirement:
 
 Generate:
 
-1. Project name
-2. Required files
-3. Description of each file
+1. entity
+2. repository
+3. service
+4. controller
+5. config
 
-Return structured response.
+Rules:
+
+1. Return project_name
+2. Return files
+3. Every file must contain:
+    - path
+    - file_name
+    - description
+
+Example:
+
+{{
+    "project_name":"library_management",
+    "files":[
+        {{
+            "path":"src/main/java/com/library/entity",
+            "file_name":"Book.java",
+            "description":"Represents Book Entity"
+        }},
+        {{
+            "path":"src/main/java/com/library/repository",
+            "file_name":"BookRepository.java",
+            "description":"JPA Repository for Book"
+        }},
+        {{
+            "path":"src/main/java/com/library/services",
+            "file_name":"BookService.java",
+            "description":"Business Logic for Book"
+        }},
+        {{
+            "path":"src/main/java/com/library/controller",
+            "file_name":"BookController.java",
+            "description":"REST APIs for Book"
+        }}
+    ]
+}}
+
+Return structured response only.
 """
 )
